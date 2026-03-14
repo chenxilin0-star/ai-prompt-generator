@@ -3,6 +3,10 @@
 # dependencies
 /node_modules
 /.pnp
+
+# 部署配置（包含敏感信息）
+DEPLOY.env
+.env.local
 .pnp.js
 .yarn/install-state.gz
 
