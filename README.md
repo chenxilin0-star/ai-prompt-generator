@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Prompt Generator
 
-## Getting Started
+一键生成高质量 AI 提示词，让每个人都能成为 Prompt 工程师
 
-First, run the development server:
+## 功能特性
+
+- ✅ **50+ 模板库** - 覆盖写作、编程、营销、学习等场景
+- ✅ **智能生成** - 输入需求，自动生成结构化提示词
+- ✅ **效果优化** - 优化现有提示词，提升AI输出质量
+- ✅ **中英文支持** - 支持中英文提示词生成
+
+## 技术栈
+
+- **框架**：Next.js 14 (App Router)
+- **样式**：Tailwind CSS + shadcn/ui
+- **AI**：OpenAI API (GPT-4o-mini)
+- **部署**：Vercel
+
+## 快速开始
+
+### 1. 安装依赖
+
+```bash
+npm install
+```
+
+### 2. 配置环境变量
+
+创建 `.env.local` 文件：
+
+```
+OPENAI_API_KEY=your_api_key_here
+```
+
+### 3. 启动开发服务器
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. 构建生产版本
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## 项目结构
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── page.tsx          # 首页
+│   ├── generator/        # 生成器页面
+│   ├── templates/        # 模板库页面
+│   ├── optimizer/        # 优化器页面
+│   └── api/
+│       ├── generate/     # 生成 API
+│       └── optimize/     # 优化 API
+├── components/
+│   └── ui/               # shadcn/ui 组件
+└── lib/
+    ├── templates.ts      # 50+ 模板定义
+    ├── types.ts          # 类型定义
+    └── utils.ts          # 工具函数
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API 接口
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### POST /api/generate
 
-## Deploy on Vercel
+生成提示词
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```json
+{
+  "template": "模板ID",
+  "variables": {
+    "变量名": "值"
+  }
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### POST /api/optimize
+
+优化提示词
+
+```json
+{
+  "prompt": "原始提示词"
+}
+```
+
+## 部署到 Vercel
+
+1. 推送代码到 GitHub
+2. 在 Vercel 导入项目
+3. 配置环境变量 `OPENAI_API_KEY`
+4. 部署
+
+## 相关文档
+
+- [技术方案](/root/.openclaw/workspace/agents/dev/knowledge/技术方案-20260314.md)
+- [MVP需求](/root/.openclaw/workspace/agents/product/knowledge/mvp-requirement-20260314.md)
+- [定位分析](/root/.openclaw/workspace/agents/positioning/knowledge/定位分析-20260314.md)
+
+## License
+
+MIT
