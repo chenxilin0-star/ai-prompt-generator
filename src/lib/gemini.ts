@@ -1,6 +1,9 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_KEY || process.env.GEMINI_API_KEY || '')
+const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_AI_KEY || ''
+console.log('[Gemini] API Key configured:', apiKey ? `${apiKey.substring(0, 10)}...` : 'NOT SET')
+
+const genAI = new GoogleGenerativeAI(apiKey)
 
 // 生成提示词
 export async function generatePrompt(
@@ -60,7 +63,8 @@ ${finalPrompt}`
     }
   } catch (error) {
     console.error('Gemini API Error:', error)
-    throw new Error('生成失败，请检查 API 配置')
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    throw new Error(`生成失败: ${errorMessage}。请检查 GEMINI_API_KEY 环境变量是否正确配置。`)
   }
 }
 
