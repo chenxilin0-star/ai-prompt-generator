@@ -79,33 +79,39 @@ export default function Home() {
       <section className="container mx-auto px-4 py-12">
         <h2 className="text-2xl font-bold mb-8 text-center">核心功能</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card>
-            <CardHeader>
-              <div className="text-4xl mb-4">📚</div>
-              <CardTitle>50+ 模板库</CardTitle>
-              <CardDescription>
-                覆盖写作、编程、营销、学习等多个场景
-              </CardDescription>
-            </CardHeader>
-          </Card>
-          <Card>
-            <CardHeader>
-              <div className="text-4xl mb-4">⚡</div>
-              <CardTitle>智能生成</CardTitle>
-              <CardDescription>
-                输入需求，自动生成结构化提示词
-              </CardDescription>
-            </CardHeader>
-          </Card>
-          <Card>
-            <CardHeader>
-              <div className="text-4xl mb-4">🎯</div>
-              <CardTitle>效果优化</CardTitle>
-              <CardDescription>
-                优化现有提示词，提升AI输出质量
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          <Link href="/templates">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+              <CardHeader>
+                <div className="text-4xl mb-4">📚</div>
+                <CardTitle>50+ 模板库</CardTitle>
+                <CardDescription>
+                  覆盖写作、编程、营销、学习等多个场景
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+          <Link href="/generator">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+              <CardHeader>
+                <div className="text-4xl mb-4">⚡</div>
+                <CardTitle>智能生成</CardTitle>
+                <CardDescription>
+                  输入需求，自动生成结构化提示词
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+          <Link href="/optimizer">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+              <CardHeader>
+                <div className="text-4xl mb-4">🎯</div>
+                <CardTitle>效果优化</CardTitle>
+                <CardDescription>
+                  优化现有提示词，提升AI输出质量
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
         </div>
       </section>
 
