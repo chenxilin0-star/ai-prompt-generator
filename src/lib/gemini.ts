@@ -5,8 +5,8 @@ console.log('[Gemini] API Key configured:', apiKey ? `${apiKey.substring(0, 10)}
 
 const genAI = new GoogleGenerativeAI(apiKey)
 
-// 模型配置 - 使用 gemini-1.5-flash 配额更宽松
-const MODEL_NAME = 'gemini-1.5-flash-latest'
+// 模型配置 - 使用 gemini-2.0-flash-lite 配额更宽松
+const MODEL_NAME = 'gemini-2.0-flash-lite'
 
 // 生成提示词
 export async function generatePrompt(
