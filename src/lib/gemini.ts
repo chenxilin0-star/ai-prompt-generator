@@ -5,6 +5,9 @@ console.log('[Gemini] API Key configured:', apiKey ? `${apiKey.substring(0, 10)}
 
 const genAI = new GoogleGenerativeAI(apiKey)
 
+// 模型配置 - 使用 gemini-1.5-flash 配额更宽松
+const MODEL_NAME = 'gemini-1.5-flash'
+
 // 生成提示词
 export async function generatePrompt(
   template: string,
@@ -17,7 +20,7 @@ export async function generatePrompt(
   })
 
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-001' })
+    const model = genAI.getGenerativeModel({ model: MODEL_NAME })
     
     const prompt = `你是一个专业的 Prompt 工程师。你的任务是帮助用户生成高质量、结构化的 AI 提示词。
 
@@ -73,7 +76,7 @@ export async function optimizePrompt(
   originalPrompt: string
 ): Promise<{ optimized: string; improvements: string[]; score: number }> {
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-001' })
+    const model = genAI.getGenerativeModel({ model: MODEL_NAME })
     
     const prompt = `请优化以下提示词，使其更加清晰、有效：
 
@@ -117,7 +120,7 @@ ${originalPrompt}
 // 评分提示词
 export async function scorePrompt(promptText: string): Promise<number> {
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-001' })
+    const model = genAI.getGenerativeModel({ model: MODEL_NAME })
     
     const prompt = `请为以下提示词打分（0-100分），只返回数字：
 
